@@ -1,0 +1,6 @@
+{
+  "app_name": "app-model",
+  "public_uri_path": "/app-model",
+  "cdn_path": "CDN/app-model",
+  "timezone": "UTC"
+}

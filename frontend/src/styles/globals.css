@@ -1,0 +1,222 @@
+@import "tailwindcss";
+@import "./design-tokens.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-bg: var(--color-bg);
+  --color-bg-subtle: var(--color-bg-subtle);
+  --color-bg-muted: var(--color-bg-muted);
+  --color-border-subtle: var(--color-border-subtle);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-disabled: var(--color-text-disabled);
+  --color-text-inverse: var(--color-text-inverse);
+  --color-brand: var(--color-brand);
+  --color-brand-hover: var(--color-brand-hover);
+  --color-brand-subtle: var(--color-brand-subtle);
+  --color-brand-muted: var(--color-brand-muted);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-info: var(--color-info);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
+  --text-display: 2rem;
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 600;
+
+  --text-h1: 1.5rem;
+  --text-h1--line-height: 1.2;
+  --text-h1--letter-spacing: -0.015em;
+  --text-h1--font-weight: 600;
+
+  --text-h2: 1.125rem;
+  --text-h2--line-height: 1.3;
+  --text-h2--letter-spacing: -0.01em;
+  --text-h2--font-weight: 600;
+
+  --text-h3: 0.9375rem;
+  --text-h3--line-height: 1.4;
+  --text-h3--font-weight: 600;
+
+  --text-body: 0.875rem;
+  --text-body--line-height: 1.5;
+  --text-body--font-weight: 400;
+
+  --text-small: 0.8125rem;
+  --text-small--line-height: 1.45;
+  --text-small--font-weight: 400;
+
+  --text-micro: 0.75rem;
+  --text-micro--line-height: 1.4;
+  --text-micro--letter-spacing: 0.01em;
+  --text-micro--font-weight: 500;
+
+  --font-display: var(--font-inter), "Inter Display", Inter, -apple-system, system-ui, sans-serif;
+  --radius-4xl: 2.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body-leading);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  *:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-focus-ring);
+  }
+
+  ::selection {
+    background-color: var(--color-brand-subtle);
+    color: var(--color-brand-hover);
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-size: var(--text-display);
+    line-height: var(--text-display-leading);
+    letter-spacing: var(--text-display-tracking);
+    font-weight: var(--text-display-weight);
+  }
+
+  .text-h1 {
+    font-size: var(--text-h1);
+    line-height: var(--text-h1-leading);
+    letter-spacing: var(--text-h1-tracking);
+    font-weight: var(--text-h1-weight);
+  }
+
+  .text-h2 {
+    font-size: var(--text-h2);
+    line-height: var(--text-h2-leading);
+    letter-spacing: var(--text-h2-tracking);
+    font-weight: var(--text-h2-weight);
+  }
+
+  .text-h3 {
+    font-size: var(--text-h3);
+    line-height: var(--text-h3-leading);
+    font-weight: var(--text-h3-weight);
+  }
+
+  .text-body {
+    font-size: var(--text-body);
+    line-height: var(--text-body-leading);
+    font-weight: var(--text-body-weight);
+  }
+
+  .text-small {
+    font-size: var(--text-small);
+    line-height: var(--text-small-leading);
+    font-weight: var(--text-small-weight);
+  }
+
+  .text-micro {
+    font-size: var(--text-micro);
+    line-height: var(--text-micro-leading);
+    letter-spacing: var(--text-micro-tracking);
+    font-weight: var(--text-micro-weight);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  .shadow-modal {
+    box-shadow: var(--shadow-modal);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex h-9 items-center justify-center rounded-sm px-4 py-2 text-body font-medium transition-colors;
+    @apply bg-brand text-text-inverse hover:bg-brand-hover;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex h-9 items-center justify-center rounded-sm px-4 py-2 text-body font-medium transition-colors;
+    @apply border border-border bg-bg text-text hover:border-border-strong hover:bg-bg-subtle;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex h-9 items-center justify-center rounded-sm px-4 py-2 text-body font-medium transition-colors;
+    @apply bg-transparent text-text-secondary hover:bg-bg-subtle hover:text-text;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .page-container {
+    @apply mx-auto w-full max-w-7xl;
+  }
+
+  .card {
+    @apply rounded-md border border-border bg-bg text-text;
+  }
+
+  .form-input {
+    @apply flex h-9 w-full rounded-sm border border-border bg-bg px-3 py-2 text-body text-text;
+    @apply placeholder:text-text-disabled hover:border-border-strong;
+    @apply focus-visible:border-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)];
+  }
+
+  .nav-link {
+    @apply flex h-8 items-center gap-2 rounded-sm px-3 py-2 text-body text-text-secondary transition-colors hover:bg-bg-subtle hover:text-text;
+  }
+
+  .nav-link.active {
+    @apply bg-brand-subtle font-medium text-brand hover:bg-brand-subtle hover:text-brand;
+  }
+
+  .spinner {
+    @apply animate-spin rounded-full border-2 border-border border-t-brand;
+  }
+
+  .ds-table {
+    @apply w-full text-body tabular-nums;
+  }
+
+  .ds-table thead tr {
+    @apply h-9 border-b border-border;
+  }
+
+  .ds-table th {
+    @apply px-3 text-left text-micro font-medium text-text-muted;
+  }
+
+  .ds-table tbody tr {
+    @apply h-10 border-b border-border-subtle hover:bg-bg-subtle;
+  }
+
+  .ds-table td {
+    @apply px-3 text-text;
+  }
+}

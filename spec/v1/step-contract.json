@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProcessFlow Step Contract",
+  "description": "Return shape and error shape for ProcessFlow code snippets (interface v1.0.4, TypeScript/JavaScript new-sandbox)",
+  "version": "1.0.4",
+  "type": "object",
+  "required": ["success", "data"],
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "True if step succeeded, false on error"
+    },
+    "data": {
+      "description": "Payload for next step; prefer a plain object. null on failure. Arrays are coerced by the engine but objects are preferred.",
+      "oneOf": [{ "type": "object" }, { "type": "null" }]
+    },
+    "message": {
+      "type": "string",
+      "description": "Optional human-readable status"
+    },
+    "error": {
+      "type": "object",
+      "description": "Required when success is false",
+      "required": ["code", "message"],
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" },
+        "details": { "type": "string" }
+      }
+    }
+  }
+}

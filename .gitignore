@@ -1,0 +1,26 @@
+# Dependencies & build
+node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+dist/
+tmp/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+**/platform-ids.generated.json
+**/config/integration.json
+*.pem
+*.key
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Tenant working copies (keep only _template)
+backend/tenants/*
+!backend/tenants/_template/
+!backend/tenants/_template/**

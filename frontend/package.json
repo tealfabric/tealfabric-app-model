@@ -1,0 +1,27 @@
+{
+  "name": "@tealfabric/app-model",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tealfabric App Model — full-stack reference app for the Tealfabric IO platform.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.6.0",
+    "tailwindcss": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.8.2",
+    "vite": "^6.0.0"
+  }
+}

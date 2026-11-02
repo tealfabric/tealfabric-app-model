@@ -1,0 +1,4 @@
+{
+  "example_integration_id": "",
+  "_comment": "Set to a tenant integration UUID for integration_status handler demos"
+}
